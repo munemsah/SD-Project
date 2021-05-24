@@ -58,3 +58,16 @@ Route::post('store-service', [HomeController::class, 'storeservice']);
 Route::get('servicelist', [HomeController::class, 'servicelist']);
 
 
+// SSLCOMMERZ Start
+Route::get('/example1', [EmployeeController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [EmployeeController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [EmployeeController::class, 'index']);
+Route::post('/pay-via-ajax', [EmployeeController::class, 'payViaAjax']);
+
+Route::post('/success', [EmployeeController::class, 'success']);
+Route::post('/fail', [EmployeeController::class, 'fail']);
+Route::post('/cancel', [EmployeeController::class, 'cancel']);
+
+Route::post('/ipn', [EmployeeController::class, 'ipn']);
+//SSLCOMMERZ END

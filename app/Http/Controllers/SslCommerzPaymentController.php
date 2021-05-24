@@ -2,98 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
-use App\Models\Employee;
-use Illuminate\Support\Facades\DB;
 use App\Library\SslCommerz\SslCommerzNotification;
 
-class EmployeeController extends Controller
+class SslCommerzPaymentController extends Controller
 {
-    public function employeelist(){
-       $employeelist= Employee::all();
-        return view('employee.employeelist', compact('employeelist'));
-    }
-    public function employeereg(){
-        return view('employee.employeereg');
-    }
 
-    public function store(Request $request){
-       $name = $request->name;
-       $email = $request->email;
-       $password = $request->password;
-       $gander = $request->gander;
-       $Is_Active = $request->Is_Active;
-       $date_of_birth = $request->date_of_birth;
-       $Role = $request->Role;
-
-       //insert database
-       $obj = new Employee();  //employee
-
-       $obj->name =$name;
-       $obj->email =$email;
-       $obj->password =$password;
-       $obj->gender =$gander;
-       $obj->is_active =$Is_Active;
-       $obj->date_of_birth =$date_of_birth;
-       $obj->role =$Role;
-
-       //insert data
-
-       if($obj->save()){
-           return redirect()->to('employeelist');
-       }
-    }
-
-    public function edit($id){
-      //  $employee = Employee::where('id','=', $id)->get();
-      $employee = Employee::find($id);
-        return view('employee.edit', compact('employee'));
-    }
-
-    public function update($id, Request $request){
-      
-        $obj = Employee::find($id);
-        $obj->name = $request->name;
-        $obj->email = $request->email;
-       
-
-        $obj->date_of_birth = $request->date_of_birth;
-        $obj->role = $request->Role;
-
-        if ($obj->save()){
-            return redirect()->to('employeelist');
-        }
-
-    }
-
-    public function delete($id){
-        $obj = Employee::find($id);
-        if ($obj->delete()){
-            return redirect()->to('employeelist');
-        }
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      public function exampleEasyCheckout()
+    public function exampleEasyCheckout()
     {
         return view('exampleEasycheckout');
     }
@@ -110,20 +26,20 @@ class EmployeeController extends Controller
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
 
         $post_data = array();
-        $post_data['total_amount'] = $request->amount; # You cant not pay less than 10
+        $post_data['total_amount'] = '10'; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
-        $post_data['cus_name'] = $request->name;
-        $post_data['cus_email'] = $request->email;
+        $post_data['cus_name'] = 'Customer Name';
+        $post_data['cus_email'] = 'customer@mail.com';
         $post_data['cus_add1'] = 'Customer Address';
         $post_data['cus_add2'] = "";
         $post_data['cus_city'] = "";
         $post_data['cus_state'] = "";
         $post_data['cus_postcode'] = "";
         $post_data['cus_country'] = "Bangladesh";
-        $post_data['cus_phone'] = $request->phone;
+        $post_data['cus_phone'] = '8801XXXXXXXXX';
         $post_data['cus_fax'] = "";
 
         # SHIPMENT INFORMATION
@@ -391,4 +307,5 @@ class EmployeeController extends Controller
             echo "Invalid Data";
         }
     }
+
 }

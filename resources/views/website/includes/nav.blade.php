@@ -24,7 +24,7 @@
             <a class="nav-link js-scroll-trigger" href="{{ URL::to('') }}">Doctor</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ URL::to('') }}">Blog</a>
+            <a class="nav-link js-scroll-trigger" href="{{ URL::to('/example2') }}">Advanced Payment</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ URL::to('') }}">Contact</a>

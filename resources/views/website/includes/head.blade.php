@@ -50,3 +50,11 @@
 
 
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+
+<style>
+    .error{
+        color : red;
+    }
+
+</style>

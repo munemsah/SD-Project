@@ -76,3 +76,7 @@ Route::post('/ipn', [EmployeeController::class, 'ipn']);
 Route::get('/', [HomeController::class, 'welcome']);
 Route::get('branches', [HomeController::class, 'branches']);
 Route::get('appointment', [HomeController::class, 'appointment']);
+Route::post('/store-appointment', [HomeController::class, 'storeappointment']);
+
+
+Route::get('/pos', [EmployeeController::class, 'pos']);

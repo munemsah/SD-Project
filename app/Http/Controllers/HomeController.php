@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Service;
+use App\Models\Appointment;
+
 use Session;
 
 class HomeController extends Controller
@@ -158,6 +160,44 @@ class HomeController extends Controller
 
         return view('website.pages.appointment');
     }
+    public function storeappointment(Request $request){
+        $validatied=$request->validate([
+            'name'=> 'required',
+            'email'=> 'required',
+            'phone'=> 'required',
+            'gander'=> 'required',
+            'date_of_birth'=> 'required',
+            'test'=> 'required',
+            'name'=> 'required',
+        ]);
+
+
+            $name = $request->name;
+            $email = $request->email;
+            $phone = $request->phone;
+            $gander = $request->gander;
+            $date_of_birth = $request->date_of_birth;
+            $test = $request->test;
+            $message = $request->message;
+    
+            //insert database
+            $obj = new Appointment();  //employee
+    
+            $obj->name =$name;
+            $obj->email =$email;
+            $obj->phone =$phone;
+            $obj->gender =$gander;
+            $obj->date_of_birth =$date_of_birth;
+            $obj->test =$test;
+            $obj->message =$message;
+
+    
+            //insert data
+    
+            if($obj->save()){
+                return redirect()->to('example2');
+            }
+     }
 
 
 }

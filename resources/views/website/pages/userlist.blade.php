@@ -7,17 +7,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <title>User list</title>
 </head>
 <body>
 
 <div class="container">
-    <div class="card">
+    <div class="card ">
         <div class="card-header">
             List of all USER 
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped" id="myTable">
                 <thead>
                 <th>Name</th>
                 <th>Email</th>
@@ -62,5 +63,15 @@
         </div>
     </div>
 </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+        } );
+    </script>
 </body>
 </html>

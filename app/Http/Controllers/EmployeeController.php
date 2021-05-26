@@ -117,7 +117,7 @@ class EmployeeController extends Controller
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = $request->name;
         $post_data['cus_email'] = $request->email;
-        $post_data['cus_add1'] = 'Customer Address';
+        $post_data['cus_add1'] = $request->text;
         $post_data['cus_add2'] = "";
         $post_data['cus_city'] = "";
         $post_data['cus_state'] = "";

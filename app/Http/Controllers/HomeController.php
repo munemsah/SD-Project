@@ -144,4 +144,20 @@ class HomeController extends Controller
         return view('website.pages.servicelist', compact('servicelist'));
     }
 
+
+    public function welcome(){
+
+        return view('welcome');
+    }
+    public function branches(){
+
+        return view('website.pages.branches');
+    }
+
+    public function appointment(){
+
+        return view('website.pages.appointment');
+    }
+
+
 }

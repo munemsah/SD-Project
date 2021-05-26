@@ -4,8 +4,7 @@
 
 <header class="bg-success text-white">
     <div class="container text-center">
-      <h1>Welcome to Scrolling Nav</h1>
-      <p class="lead">A landing page template freshly redesigned for Bootstrap 4</p>
+      <h1>About US</h1>
     </div>
   </header>
 

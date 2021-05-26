@@ -32,7 +32,7 @@ Route::get('delete-employee/{id}', [EmployeeController::class, 'delete']);
 
 # Routing
 
-Route::get('/', [HomeController::class, 'home']);
+Route::get('home', [HomeController::class, 'home']);
 Route::get('about-us', [HomeController::class, 'about']);
 
 
@@ -71,3 +71,8 @@ Route::post('/cancel', [EmployeeController::class, 'cancel']);
 
 Route::post('/ipn', [EmployeeController::class, 'ipn']);
 //SSLCOMMERZ END
+
+
+Route::get('/', [HomeController::class, 'welcome']);
+Route::get('branches', [HomeController::class, 'branches']);
+Route::get('appointment', [HomeController::class, 'appointment']);

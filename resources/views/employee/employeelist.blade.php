@@ -7,16 +7,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
     <title>Employee list</title>
 </head>
 <body>
     <div class="container">
         <div class="card">
          <div class="card-header">
-            <h4 class="card-title">Employee list</h4>
+         <h2>Filterable Table</h2>
+        <p>Type something in the input field to search the table for first names, last names or emails:</p>  
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <br><br>
+
+        <h4 class="card-title">Employee list</h4>
         </div>
           <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped" id="myTable">
             <thead>
                 <th>Name</th>
                 <th>Email</th>
@@ -25,7 +44,7 @@
                 <th>Role</th>
                 <th>Action</th>
             </thead>
-            <tbody>
+            <tbody id="myTable">
            
             @foreach($employeelist as $e)
             <tr>
@@ -64,5 +83,17 @@
           </div>
         </div>
     </div>
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+        } );
+    </script>
+
 </body>
 </html>
